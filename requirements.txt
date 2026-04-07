@@ -1,0 +1,12 @@
+PyQt6
+langchain
+langchain-community
+langchain-huggingface
+faiss-cpu
+pypdf
+sentence-transformers
+matplotlib
+scikit-learn
+networkx
+numpy
+pandas
