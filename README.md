@@ -89,5 +89,3 @@ python gui.py
 
 ---
 
-## ⚖️ License
-MIT License. Free for educational and commercial use.
