@@ -379,10 +379,14 @@ class NodeItem(QGraphicsItem):
             self.spin_win = QSpinBox(); self.spin_win.setValue(s["config_options"].get("window_size",5))
             self.spin_win.setMinimum(1); self.spin_win.setMaximum(100)
             row2.addWidget(self.spin_win); self.layout.addLayout(row2)
+            self.peek_text = QTextEdit(); self.peek_text.setReadOnly(True)
+            self.peek_text.setPlaceholderText("History peek...")
+            self.peek_text.setFixedHeight(80); self.peek_text.setFont(QFont("Consolas", 8))
+            self.layout.addWidget(self.peek_text)
             self.btn_clear_buf = QPushButton("\U0001f5d1 Clear History")
             self.btn_clear_buf.clicked.connect(lambda: self.scene_ref.signals.nodeAction.emit(self.node_id, "clear_buffer", {}))
             self.layout.addWidget(self.btn_clear_buf)
-            self.content_height = 140
+            self.content_height = 230
 
         elif self.node_type == "Cache":
             row = QHBoxLayout(); row.addWidget(QLabel("TTL(s):"))
@@ -393,10 +397,14 @@ class NodeItem(QGraphicsItem):
             self.spin_max = QSpinBox(); self.spin_max.setMaximum(10000)
             self.spin_max.setValue(s["config_options"].get("max_entries",100))
             row2.addWidget(self.spin_max); self.layout.addLayout(row2)
+            self.peek_text = QTextEdit(); self.peek_text.setReadOnly(True)
+            self.peek_text.setPlaceholderText("Cache peek...")
+            self.peek_text.setFixedHeight(80); self.peek_text.setFont(QFont("Consolas", 8))
+            self.layout.addWidget(self.peek_text)
             self.btn_clear_cache = QPushButton("\U0001f5d1 Clear Cache")
             self.btn_clear_cache.clicked.connect(lambda: self.scene_ref.signals.nodeAction.emit(self.node_id, "clear_cache", {}))
             self.layout.addWidget(self.btn_clear_cache)
-            self.content_height = 140
+            self.content_height = 230
 
         elif self.node_type == "Router":
             row = QHBoxLayout(); row.addWidget(QLabel("Type:"))
@@ -504,6 +512,10 @@ class NodeItem(QGraphicsItem):
     # ── data access ──
     def set_data(self, key, val):
         if key == "status": self.status_dot.setText(val)
+        elif key == "peek":
+            if hasattr(self, 'peek_text'):
+                self.peek_text.setPlainText(str(val))
+        
         if self.node_type == "PDF Loader" and key == "file": self.lbl_file.setText(val)
         elif self.node_type == "Response Output" and key == "answer": self.text_output.setText(val)
         elif self.node_type == "Debug Inspector" and key == "data":

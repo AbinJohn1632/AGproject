@@ -697,7 +697,18 @@ class RAGWindow(QMainWindow):
 
     def _update_node_status(self, node_id, status_text):
         node = self.node_scene._find_node(node_id)
-        if node: node.set_data("status", status_text)
+        if not node: return
+        
+        if status_text.startswith("PEEK:"):
+            # Detailed data preview for simulation
+            node.set_data("peek", status_text.replace("PEEK:", ""))
+        elif status_text.startswith("\U0001f50e"): # Inspect icon 🔎
+            # Debug inspector also goes to peek
+            node.set_data("peek", status_text)
+            node.set_data("data", status_text) # Compatibility for Debug node
+        else:
+            # Normal status dot update
+            node.set_data("status", status_text)
 
     def _on_graph_done(self, result_text):
         # Push result into all Response Output nodes

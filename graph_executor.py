@@ -160,12 +160,14 @@ class GraphExecutor:
                     cached = GraphExecutor.cache_store[q]
                     self._set_output(nid, 0, cached)
                     self.log(f"  [Cache] HIT for '{q[:40]}...'", "#A6E3A1")
+                    self.status(nid, f"PEEK:HIT for '{q[:20]}...'\nAns: {str(cached)[:100]}...")
                     # Short-circuit: skip all nodes reachable ONLY through miss port (port 1)
                     self._short_circuit_port(nid, 1)
                 else:
                     # MISS → output port 1 (miss), skip hit branch
                     self._set_output(nid, 1, q)
                     self.log(f"  [Cache] MISS for '{q[:40]}...'", "#F9E2AF")
+                    self.status(nid, f"PEEK:MISS for '{q[:40]}...'")
                     self._short_circuit_port(nid, 0)
 
             elif ntype == "Router":
@@ -201,6 +203,7 @@ class GraphExecutor:
                     GraphExecutor.buffer_store.append(str(data))
                 memory = "\n".join(GraphExecutor.buffer_store[-window:])
                 self._set_output(nid, 0, memory if memory else "[no_history]")
+                self.status(nid, f"PEEK:{memory if memory else '[empty history]'}")
                 n_entries = len(GraphExecutor.buffer_store)
                 if n_entries_before == 0:
                     self.log(f"  [Buffer] empty (first run — history builds after LLM responds)", "#F9E2AF")

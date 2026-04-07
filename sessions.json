@@ -1,31 +1,12 @@
 {
-    "active_session_id": "3de5a2a1-974d-4008-8317-42e6bc2a241a",
+    "active_session_id": "25f52366-1064-4632-8f46-dab05b88913f",
     "sessions": [
         {
-            "id": "3de5a2a1-974d-4008-8317-42e6bc2a241a",
-            "name": "Chat 2026-04-07 00:39",
-            "alias": "Hail Mary",
-            "buffer": [
-                "User: What is the story about?",
-                "AI: The story appears to be about a spaceship with limited power and life support systems, where two crew members, the narrator and Rocky, are trying to survive on a mission that could last for several years. They are navigating technical issues, managing resources, and coping with the psychological challenges of being confined in a small space with limited amenities.",
-                "User: how many aliens are bhere?",
-                "AI: I don't know. The conversation doesn't mention aliens at all.",
-                "how many astronauts are there?",
-                "User: how many astronauts are there?",
-                "AI: According to the text, it's mentioned that \"We've already had tens of thousands of volunteers\" and later Stratt says \"Hundreds\", indicating a small group of astronauts selected for the mission. However, no specific number is provided.",
-                "how many astronauts are there?",
-                "AI: According to the text, it's mentioned that \"We've already had tens of thousands of volunteers\" and later Stratt says \"Hundreds\", indicating a small group of astronauts selected for the mission. However, no specific number is provided. The exact number of astronauts is not mentioned in the conversation.",
-                "mention all the planets named in the book",
-                "User: mention all the planets named in the book",
-                "AI: Here are the planets mentioned by name in the text:\n\n1. Earth\n2. Erid\n3. Threeworld (also referred to as \"Planet Three\")\n4. Venus",
-                "who is the main lead?",
-                "User: who is the main lead?",
-                "AI: The context does not explicitly mention a \"main lead\" character, but it seems that Andy Weir's name appears in the text (\"FOR JOHN, PAUL, GEORGE, AND RINGO / BY ANDY WEIR\"). Therefore, I can infer that Andy Weir is likely the author of the book.",
-                "Does he survive?",
-                "User: Does he survive?",
-                "AI: No. According to the text, Rocky dies after eating a meal and subsequently falling into a deep sleep, suggesting that he does not survive."
-            ],
-            "timestamp": 1775503708.1326373
+            "id": "25f52366-1064-4632-8f46-dab05b88913f",
+            "name": "Chat 2026-04-07 16:47",
+            "alias": "",
+            "buffer": [],
+            "timestamp": 1775560642.4485471
         }
     ]
 }
